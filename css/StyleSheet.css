@@ -172,7 +172,7 @@ body {
 /*&nbsp;&nbsp;-this are not working either*/
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 
-.p3 {
+/*.p3 {
   background-color:#b0bec5;
 }
 
@@ -251,10 +251,10 @@ body {
   margin: auto;
   margin-top: 5%;
   margin-bottom: 0;
-}
+}*/
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
-footer {
+/*footer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -276,7 +276,7 @@ input {
 textarea {
   height: 200px;
   border: none;
-}
+}*/
 
 /*footer button {
   background-color: #3f3d56;
@@ -295,7 +295,7 @@ footer button:hover {
   opacity: 0.9;
 }*/
 
-@media screen and (max-width: 500px) {
+/*@media screen and (max-width: 500px) {
   .p1 header {
     flex-direction: column;
     padding: 0;
@@ -387,5 +387,5 @@ footer button:hover {
 
   .p2 .text p {
     font-size: 18px;
-  }
+  }*/
 }
