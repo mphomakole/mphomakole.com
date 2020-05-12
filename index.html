@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -21,14 +22,14 @@
             <ul class="nav-links">
                 <!--as the skill is aquired, such pages will be used but for  now I will use the landing page for the purpose of 'about me'-->
                 <!--<li class="nav-link"><a href="#about">about me</a></li>-->
+                
                 <!--the only necessary link in my website with just HTML and CSS and my story(projects) will be this one with CV and contact info-->
-                <li class="nav-link">
-                    <a href="#myCV">curriculum vitae</a>
+                <li class="nav-link"><a href="#myCV">curriculum vitae</a></li>
 
-                    <!--No projects to showcase as yet, so there is no point in having pages that will not have sifnificant information to view-->
-                    <!--<li class="nav-link"><a href="#work">my work</a></li>-->
-                    <!---this,contact me, will work as the site grows with other techs cos its a tall order for HTML alone to to such a task-->
-                    <!--<li class="nav-link"><a href="#contact">contact me</a></li>-->
+                <!--No projects to showcase as yet, so there is no point in having pages that will not have sifnificant information to view-->
+                <!--<li class="nav-link"><a href="#work">my work</a></li>-->
+                
+                <li class="nav-link"><a href="#myCV">contact me</a></li>
             </ul>
         </header>
         <main>
@@ -70,7 +71,7 @@
     <section class="p2" id="myCV">
         <div class="text">
             <h1>Curriculum Vitae</h1>
-            <table>
+            <table class="text">
                 <tr><th>Personal</th></tr>
                 <tr>
                     <td>Nationality:</td>
@@ -155,26 +156,14 @@
                 </tr>
             </table>
             <div class="cvdwnld">download CV in pdf <a href="#">here</a></div>
+            <a href="#">PAGE-UP</a>
         </div>
         <div class="contact">
-            <p>If you would like to get in contact with me for any reason, please email me at mphomakole@outlook.com.<br />You can use the following dialog for 
-            your convinience. Please note that this dialog only accesses your email client and does not directly send your email to my server</p>
-            <form action="mailto:mphomakole@outlook.com" method="POST" enctype="text/plain">
-                <label>
-                    E-mail
-                    <input type="email" class="email" />
-                </label>
-                <label>
-                    Subject
-                    <input type="text" class="subject" />
-                </label>
-                <label>
-                    Message
-                    <textarea class="message"></textarea>
-                </label>
-                <button type="submit" class="submit">Send</button>
-                <button type="reset">Reset</button>
-            </form>
+            <div style="text-align:center">
+            <img src="mail.jpg" alt="MyImage" width="250" height="200" />
+            <p>If you would like to get in contact with me for any reason, please email me at <a href="mailto:
+                mphomakole@outlook.com">mphomakole@outlook.com</a></p>
+            </div>
         </div>
     </section>
   </body>
