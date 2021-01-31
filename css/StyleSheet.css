@@ -1,391 +1,331 @@
-﻿* {
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #7e57c2;
+  --main-blue: #4B4551;
+  --main-gray: #303841;
+}
+
+/* Base reset */
+* {
   margin: 0;
-  padding:0;
-  box-sizing: border-box; 
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
 body {
-  font-family: Calibri;
-}
-
-.p1 main {
-  min-height: 80vh;
-  background-color:#b0bec5;
-}
-
-/*.p1 {
-  background-image: url(../img/bckground.jpg);
-  background-size: cover;
-  color: white;
-}*/
-
-.p1 header {
-  display: flex;
-  align-items: center;
-  min-height: 20vh;
-  background-color:#37474f;
-}
-
-.p1 .logo {
-  flex: 1;
-  font-size: 2rem;
-  padding-left: 100px;
-  font-family:Calibri;
-  font-weight: bold;
-  color:white;
-}
-.p1 .logo .mantra {
-  font-size: 1rem;
-}
-
-.p1 ul{
-  list-style:circle;
-  display: flex;
-  justify-content: space-evenly;
-  flex: 1;
-  padding-top: 20px;
-  /*with only two menu items it doesnt look layed our nicely, so I will change padding to the right in the mean time*/
-  /*it was 100px, to match logo padding on the left but I will make it px until we have three items again*/
-  /*padding-right: 40px;*/
-}
-.p1 a {
-  text-decoration: none;
-  color: white;
-  transition: 0.4s ease;
-  cursor: pointer;
-}
-
-.p1 a:hover {
-  color: #28c5e2;  
-  opacity: 0.9;
-}
-
-.p1 li {
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
-
-.p1 main .quote{
-    display:flex;
-    align-items:center;
-    justify-content: space-evenly;
-    padding-top:20px;
-    font-style:italic;
-}
-
-.p1 h1{
-    padding-left: 200px;
-    padding-top:30px;
-}
-
-/*Style fine,only should not apply to the twitter link, the <p> have been divided into bio and tail*/
-.p1 main .bio{
-    display:flex;
-    flex:1;
-    justify-content: space-evenly;
-    /*centralise the content of this conatiner via parent container will not work as the content itself 
-        does not live any space for centralising,see description align-items to understand in html*/
-    padding-left: 200px;
-    padding-right:200px;
-}
-
-.p1 main img{
-    border-radius:50%;
-}
-.p1 main .bio-tail {
-    padding-left: 200px;
-    padding-right:200px;
-}
-
-/*some values and unknown attributes{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
   font-weight: 400;
-  font-size: 40px;
-}*/
-
-/*---------------------------------------------------------------------------------------------------------------------------*/
-
-.p2 {
-  min-height: 100vh;
-  display: flex;  
-  background-color: #37474f;
-  padding-left: 200px;
-  padding-right:200px;
-  /*the following attributes centralises content*/
-  /*justify-content: space-evenly;
-  align-items: center;*/
+  line-height: 1.4;
+  color: var(--main-white);
 }
 
-.p2 .text {
-  /*width: 20%;- boxes content*/
-  color: white;
-  font-size: 15px;
-}
-
-
-.p2 .text h1 {
-  padding-bottom: 20px;
-  padding-top:30px
-}
-
-.p2 .text p {
-  font-size: 20px;
-}
-.p2 .text .cvdwnld{
-    padding-top:40px;
-}
-.p2 .contact{
-    align-self:flex-end;
-    padding-bottom:250px;
-    color:grey;
-    width:43%;
-}
-.p2 button {
-  background-color: #3f3d56;
-  border: none;
-  width: 164px;
-  height: 40px;
-  font-size: 18px;
-  font-family: Oswald;
-  transition: 0.3s ease;
-  cursor: pointer;
-  color: white;
-  margin-top: 5%;
-}
-
-.p2 button:hover {
-  opacity: 0.9;
-}
-/*not working,still messy had it worked*/
-/*.p2 .text span{
-    padding-left:4px;
-}*/
-/*&nbsp;&nbsp;-this are not working either*/
-/*-----------------------------------------------------------------------------------------------------------------------------*/
-
-/*.p3 {
-  background-color:#b0bec5;
-}
-
-.p3 header {
-  min-height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.p3 header h1 {
-  font-size: 40px;
-  color: white;
-}
-
-.p3 main {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.p3 ul {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  list-style: none;
-  flex: 1;
-}
-
-.p3 li {
-  background-color: #2688a0;
-  color: white;
-  width: 314px;
-  height: 404px;
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   text-align: center;
 }
 
-.p3 li .full {
-  background-color: #3f3d56;
-  margin-bottom: 20px;
-  color: white;
-  border: none;
+h1 {
+  font-size: 6rem;
 }
 
-.p3 li .empty {
-  border: 4px solid #3f3d56;
-  background-color: transparent;
-  color: white;
+h2 {
+  font-size: 4.2rem;
 }
 
-.p3 li h4 {
-  padding-top: 20px;
-  padding-bottom: 30px;
-  font-size: 24px;
-  font-weight: 400;
+ul {
+  list-style: none;
 }
 
-.p3 li button {
-  width: 164px;
-  height: 40px;
-  font-size: 18px;
-  font-family: Oswald;
-  transition: 0.3s ease;
-  cursor: pointer;
+a {
+  text-decoration: none;
+  color: var(--main-white);
 }
 
-.p3 li button:hover {
-  opacity: 0.9;
-}
-
-.p3 li img {
-  width: 233px;
-  height: 164px;
+img {
   display: block;
-  margin: auto;
-  margin-top: 5%;
-  margin-bottom: 0;
-}*/
-/*----------------------------------------------------------------------------------------------------------------------------*/
+  width: 100%;
+}
 
-/*footer {
-  min-height: 100vh;
+/* nav */
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-red);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  .nav {
+    justify-content: center;
+  }
+
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: var(--main-blue);
+}
+
+/* Welcome section */
+
+.welcome-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #b0bec5;
-  color: white;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
 }
 
-label,
-input {
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--main-red);
+}
+
+/* Projects section */
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+/* Contact section */
+
+.contact-section {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 50px;
-  border: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
 }
 
-textarea {
-  height: 200px;
-  border: none;
-}*/
-
-/*footer button {
-  background-color: #3f3d56;
-  border: none;
-  width: 164px;
-  height: 40px;
-  font-size: 18px;
-  font-family: Oswald;
-  transition: 0.3s ease;
-  cursor: pointer;
-  color: white;
-  margin-top: 5%;
+.contact-section-header > h2 {
+  font-size: 6rem;
 }
 
-footer button:hover {
-  opacity: 0.9;
-}*/
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
 
-/*@media screen and (max-width: 500px) {
-  .p1 header {
-    flex-direction: column;
-    padding: 0;
-  }
+.contact-section-header > p {
+  font-style: italic;
+}
 
-  .p1 .logo {
-    padding: 0;
-  }
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
 
-  .p1 ul {
-    flex-direction: column;
-    padding: 0;
-  }
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
 
-  .p1 li {
-    flex-direction: column;
-    padding-bottom: 5px;
-    font-size: 20px;
-  }
+.contact-details:hover {
+  transform: translateY(8px);
+}
 
-  .p1 main h1 {
-    font-size: 45px;
-  }
-  .p1 main p {
-    font-size: 24px;
-  }
-  .p1 main .icons {
-    font-size: 30px;
-  }
+/* Footer */
 
-  .p2 {
-    flex-direction: column;
-  }
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--main-gray);
+  border-top: 4px solid var(--main-red);
+}
 
-  .p2 .text {
-    width: 20vh;
-    height: auto;
-  }
+footer > p {
+  margin: 2rem;
+}
 
-  .p2 .text h1 {
-    font-size: 20px;
-    text-align: center;
-  }
+footer i {
+  vertical-align: middle;
+}
 
-  .p2 .text p {
-    font-size: 18px;
-  }
-
-  .p2 img {
-    width: 100%;
-    height: auto;
-  }
-
-  .p3 li {
-    margin-top: 10%;
-  }
-
-  .p3 ul {
-    padding-bottom: 10%;
-  }
-
+@media (max-width: 28.75em) {
   footer {
-    text-align: center;
-  }
-  label,
-  input {
-    display: flex;
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    border: none;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .p2 img {
-    width: 50%;
-    height: auto;
-  }
-  .p2 .text {
-    width: 20vh;
-    height: auto;
-  }
-
-  .p2 .text h1 {
-    font-size: 20px;
     text-align: center;
   }
-
-  .p2 .text p {
-    font-size: 18px;
-  }*/
 }
